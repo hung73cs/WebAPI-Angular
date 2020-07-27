@@ -1,0 +1,68 @@
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dt of data">
+        <td>{{dt.firstName}}</td>
+        <td>{{dt.lastName}}</td>
+        <td>{{dt.phoneNumber}}</td>
+        <td>{{dt.email}}</td>
+        <td>{{dt.gender}}</td>
+        <button title="edit" (click)="edit()">Edit</button>
+        <button title="delete" (click)="delete(dt)">Delete</button>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Thêm</h2>
+<form novalidate #form="ngForm" (ngSubmit)="onSubmit(form.value)" class="row justify-content-md-center">
+  <div class="col-md-10">
+    <div class="form-group row">
+      <label for="example-email-input" class="col-md-2 col-form-label">First Name:</label>
+      <div class="col-md-10">
+        <input class="form-control" type="text" id="firstName" ngModel name="firstName">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-email-input" class="col-md-2 col-form-label">Last Name:</label>
+      <div class="col-md-10">
+        <input class="form-control" type="text" id="lastName" ngModel name="lastName">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-url-fb" class="col-md-2 col-form-label">Phone Number:</label>
+      <div class="col-md-10">
+        <input class="form-control" type="text" id="phoneNumber" ngModel name="phoneNumber">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-url-twt" class="col-md-2 col-form-label">Email:</label>
+      <div class="col-md-10">
+        <input class="form-control" type="email" id="email" ngModel name="email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="example-url-web" class="col-md-2 col-form-label">Gender:</label>
+      <div class="col-md-10">
+        <input class="form-control" type="text" id="gender" ngModel name="gender">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-10 offset-md-2">
+        <button class="btn btn-primary" type="ngSubmit">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<h2>Edit</h2>
